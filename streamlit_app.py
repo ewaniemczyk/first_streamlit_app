@@ -60,3 +60,4 @@ streamlit.write('Thanks for adding',add_my_fruit)
 
 #INSERT NEW ROWS INTO SF
 my_cur.execute("insert into pc_rivery_db.public.fruit_load_list values('from streamlit')")
+#
