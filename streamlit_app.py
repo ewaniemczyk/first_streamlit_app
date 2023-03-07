@@ -88,11 +88,11 @@ def get_fruit_load_list():
     my_cur.execute("select * from pc_rivery_db.public.fruit_load_list")
     return my_cur.fetchall()
 
-# Add button  to load the fruit  - I had to commented as later the same button 'get fruit load list' is on the end
-#if streamlit.button('Get Fruit Load List'):
-#  cnx=snowflake.connector.connect(**streamlit.secrets["snowflake"])
-#  my_data=get_fruit_load_list()
-#  streamlit.dataframe(my_data)
+#Add button  to load the fruit  - I had to commented as later the same button 'get fruit load list' is on the end
+if streamlit.button('Get Fruit Load List'):
+  cnx=snowflake.connector.connect(**streamlit.secrets["snowflake"])
+  my_data=get_fruit_load_list()
+  streamlit.dataframe(my_data)
 
 #function to load snowflake
 def insert_row_snowflake(new_fruit):
@@ -102,7 +102,7 @@ def insert_row_snowflake(new_fruit):
     
 # Add button  to load the fruit into snowflake
 add_my_fruit=streamlit.text_input('What fruit would You like to add')
-if streamlit.button('Get Fruit Load List'):
+if streamlit.button('Add a fruit to the list'):
   cnx=snowflake.connector.connect(**streamlit.secrets["snowflake"])
   streamlit.text(insert_row_snowflake(add_my_fruit))
   streamlit.dataframe(my_data)
